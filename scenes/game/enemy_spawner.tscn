@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://qkt6gxw4lngw"]
+
+[ext_resource type="Script" uid="uid://dlpaovbbp85ft" path="res://scripts/game/enemy_spawner.gd" id="1_kaeo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kaeo0"]
+size = Vector2(240, 360)
+
+[node name="EnemySpawner" type="Node2D" unique_id=442304123]
+script = ExtResource("1_kaeo0")
+
+[node name="EnemyChecker" type="Area2D" parent="." unique_id=747562220]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="EnemyChecker" unique_id=1828846443]
+position = Vector2(120, 180)
+shape = SubResource("RectangleShape2D_kaeo0")
+
+[node name="EnemySpawnTimer" type="Timer" parent="." unique_id=1522830763]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="EnemyChecker" to="." method="_on_enemy_checker_area_entered"]
+[connection signal="area_exited" from="EnemyChecker" to="." method="_on_enemy_checker_area_exited"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

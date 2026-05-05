@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://vgmlvp54kbsj"]
+
+[ext_resource type="Texture2D" uid="uid://bwm0qk3vqs1n7" path="res://icon.svg" id="1_uytqk"]
+[ext_resource type="PackedScene" uid="uid://diqbywfpvgnle" path="res://scenes/player/astronaut.tscn" id="2_wnl3r"]
+[ext_resource type="PackedScene" uid="uid://crx6p70xi6hqf" path="res://scenes/player/rock.tscn" id="3_x1q13"]
+[ext_resource type="PackedScene" uid="uid://qkt6gxw4lngw" path="res://scenes/game/enemy_spawner.tscn" id="4_0vscr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1q13"]
+size = Vector2(481, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vscr"]
+size = Vector2(15.78125, 720)
+
+[node name="TestScene" type="Node2D" unique_id=12806459]
+
+[node name="Walls" type="Node2D" parent="." unique_id=1180370649]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=1402552463]
+position = Vector2(-2, 10)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D" unique_id=1202678574]
+position = Vector2(242, 7.152556e-07)
+scale = Vector2(3.7500002, 0.15625)
+texture = ExtResource("1_uytqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=415332554]
+position = Vector2(242, 0)
+shape = SubResource("RectangleShape2D_x1q13")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls" unique_id=2027905193]
+position = Vector2(2, 709)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D2" unique_id=854648173]
+position = Vector2(238.00002, 1.9073486e-06)
+scale = Vector2(3.75, 0.15625001)
+texture = ExtResource("1_uytqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2" unique_id=1762667921]
+position = Vector2(237.5, 0)
+shape = SubResource("RectangleShape2D_x1q13")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls" unique_id=151883406]
+position = Vector2(10, 2)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3" unique_id=739011496]
+position = Vector2(-2.65625, 358)
+shape = SubResource("RectangleShape2D_0vscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D3" unique_id=1228766232]
+position = Vector2(-2.4999995, 358.00006)
+scale = Vector2(0.11718748, 5.6250005)
+texture = ExtResource("1_uytqk")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls" unique_id=357785239]
+position = Vector2(469, 4)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4" unique_id=1402602427]
+position = Vector2(3.109375, 356)
+shape = SubResource("RectangleShape2D_0vscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D4" unique_id=1540099782]
+position = Vector2(3.500002, 356.00003)
+scale = Vector2(0.1171875, 5.6250005)
+texture = ExtResource("1_uytqk")
+
+[node name="Astronaut" parent="." unique_id=1966081554 instance=ExtResource("2_wnl3r")]
+position = Vector2(243, 608)
+
+[node name="Rock" parent="." unique_id=1942974110 instance=ExtResource("3_x1q13")]
+position = Vector2(242, 469)
+
+[node name="EnemySpawner" parent="." unique_id=442304123 instance=ExtResource("4_0vscr")]

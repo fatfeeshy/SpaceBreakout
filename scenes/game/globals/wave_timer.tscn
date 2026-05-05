@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://bc62wb84occdy"]
+
+[node name="WaveTimer" type="Timer" unique_id=511086244]
+wait_time = 25.0
+one_shot = true

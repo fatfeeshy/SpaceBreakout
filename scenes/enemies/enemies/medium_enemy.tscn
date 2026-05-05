@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dnkyhoijmwemy"]
+
+[ext_resource type="Script" uid="uid://dbootw21vbhv2" path="res://scripts/enemies/enemies/medium_enemy.gd" id="1_tyira"]
+[ext_resource type="Texture2D" uid="uid://ckiv4vseto2ll" path="res://assets/sprites/enemies/mediumenemy.png" id="2_tyira"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfx7k"]
+size = Vector2(24, 32)
+
+[node name="MediumEnemy" type="Area2D" unique_id=1746130420]
+script = ExtResource("1_tyira")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=560543232]
+shape = SubResource("RectangleShape2D_lfx7k")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=631712546]
+texture = ExtResource("2_tyira")
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=1203545741]
+position = Vector2(-7, 16)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1398524981]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

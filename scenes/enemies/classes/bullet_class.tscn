@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bh05is7duqkpo"]
+
+[ext_resource type="Script" uid="uid://cyi2wymwbusiv" path="res://scripts/enemies/classes/bullet_class.gd" id="1_kdy37"]
+
+[node name="BulletClass" type="Area2D" unique_id=892413767]
+script = ExtResource("1_kdy37")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

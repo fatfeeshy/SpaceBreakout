@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b3x6vj50jicbq"]
+
+[ext_resource type="Script" uid="uid://bjnb4jhdnkibw" path="res://scripts/enemies/enemies/small_enemy.gd" id="1_awo7y"]
+[ext_resource type="Texture2D" uid="uid://bruk8522gexn7" path="res://assets/sprites/enemies/smallenemy.png" id="2_awo7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xld3b"]
+size = Vector2(18, 22)
+
+[node name="SmallEnemy" type="Area2D" unique_id=1055829758]
+script = ExtResource("1_awo7y")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1318570038]
+shape = SubResource("RectangleShape2D_xld3b")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=769401251]
+texture = ExtResource("2_awo7y")
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=1364233145]
+position = Vector2(-5.5, 11)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=1169104710]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

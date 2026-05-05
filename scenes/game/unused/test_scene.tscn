@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://vgmlvp54kbsj"]
+
+[ext_resource type="Texture2D" uid="uid://bwm0qk3vqs1n7" path="res://icon.svg" id="1_uytqk"]
+[ext_resource type="PackedScene" uid="uid://djq6y387h35o4" path="res://scenes/game/gui/pause_screen.tscn" id="2_gmpwx"]
+[ext_resource type="PackedScene" uid="uid://diqbywfpvgnle" path="res://scenes/player/astronaut.tscn" id="2_wnl3r"]
+[ext_resource type="PackedScene" uid="uid://crx6p70xi6hqf" path="res://scenes/player/rock.tscn" id="3_x1q13"]
+[ext_resource type="PackedScene" uid="uid://qkt6gxw4lngw" path="res://scenes/game/enemy_spawner.tscn" id="4_0vscr"]
+[ext_resource type="PackedScene" uid="uid://2c6ppby6uovl" path="res://scenes/game/killzone/bullet_killzone.tscn" id="5_2iimr"]
+[ext_resource type="PackedScene" uid="uid://csnx2dswr3c8o" path="res://scenes/game/killzone/killzone.tscn" id="5_3upae"]
+[ext_resource type="PackedScene" uid="uid://c7fqi5k305ttd" path="res://scenes/game/gui/death_screen.tscn" id="6_4amn5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x1q13"]
+size = Vector2(240.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vscr"]
+size = Vector2(9.886719, 360)
+
+[node name="TestScene" type="Node2D" unique_id=12806459]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1337742796]
+
+[node name="DeathScreen" parent="CanvasLayer" unique_id=1494021285 instance=ExtResource("6_4amn5")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="PauseScreen" parent="CanvasLayer" unique_id=1647446896 instance=ExtResource("2_gmpwx")]
+
+[node name="Walls" type="Node2D" parent="." unique_id=1180370649]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=1402552463]
+position = Vector2(-2, 10)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D" unique_id=1202678574]
+position = Vector2(121.99999, -4.9999995)
+scale = Vector2(1.8750001, 0.07812499)
+texture = ExtResource("1_uytqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=415332554]
+position = Vector2(121.75, -5)
+shape = SubResource("RectangleShape2D_x1q13")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Walls" unique_id=2027905193]
+position = Vector2(2, 709)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D2" unique_id=854648173]
+position = Vector2(118.00001, -354)
+scale = Vector2(1.8750001, 0.07812471)
+texture = ExtResource("1_uytqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D2" unique_id=1762667921]
+position = Vector2(118, -354)
+shape = SubResource("RectangleShape2D_x1q13")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Walls" unique_id=151883406]
+position = Vector2(10, 2)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D3" unique_id=1228766232]
+position = Vector2(-4.999999, 178.00003)
+scale = Vector2(0.078124985, 2.8125)
+texture = ExtResource("1_uytqk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D3" unique_id=739011496]
+position = Vector2(-4.9433594, 178)
+shape = SubResource("RectangleShape2D_0vscr")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Walls" unique_id=357785239]
+position = Vector2(469, 4)
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D4" unique_id=1402602427]
+position = Vector2(-234, 176)
+shape = SubResource("RectangleShape2D_0vscr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/StaticBody2D4" unique_id=1540099782]
+position = Vector2(-234.25, 176)
+scale = Vector2(0.074218735, 2.8125)
+texture = ExtResource("1_uytqk")
+
+[node name="Killzone2" parent="Walls" unique_id=1695102599 instance=ExtResource("5_3upae")]
+position = Vector2(0, 433)
+
+[node name="Killzone" parent="Walls" unique_id=2091694115 instance=ExtResource("5_3upae")]
+position = Vector2(0, -35)
+
+[node name="BulletKillzone" parent="Walls" unique_id=387243657 instance=ExtResource("5_2iimr")]
+position = Vector2(0, 112)
+
+[node name="Astronaut" parent="." unique_id=1966081554 instance=ExtResource("2_wnl3r")]
+position = Vector2(119, 313)
+
+[node name="EnemySpawner" parent="." unique_id=442304123 instance=ExtResource("4_0vscr")]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=244047560]
+position = Vector2(242, 150)
+gizmo_extents = 0.0
+
+[node name="Rock" parent="." unique_id=512688562 instance=ExtResource("3_x1q13")]
+position = Vector2(120, 228)
+
+[connection signal="respawn" from="Astronaut" to="Astronaut" method="_on_respawn"]

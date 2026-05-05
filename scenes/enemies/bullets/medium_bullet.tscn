@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dixfc8op04mlk"]
+
+[ext_resource type="Script" uid="uid://bh51xd31huloc" path="res://scripts/enemies/bullets/medium_bullet.gd" id="1_i3u4v"]
+[ext_resource type="Texture2D" uid="uid://bwm0qk3vqs1n7" path="res://icon.svg" id="2_ha1p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vaplf"]
+size = Vector2(50, 50)
+
+[node name="Area2D" type="Area2D" unique_id=2044081445]
+script = ExtResource("1_i3u4v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1629859701]
+position = Vector2(25, 25)
+shape = SubResource("RectangleShape2D_vaplf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=443529532]
+modulate = Color(1, 0.7019608, 1, 1)
+position = Vector2(25, 25)
+scale = Vector2(0.390625, 0.390625)
+texture = ExtResource("2_ha1p3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

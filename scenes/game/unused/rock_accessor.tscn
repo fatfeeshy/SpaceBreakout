@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c5k1qp1c3oh4d"]
+
+[ext_resource type="Script" uid="uid://dlha1uaj8vali" path="res://scripts/game/unused/object_accessor.gd" id="1_2duc8"]
+
+[node name="ObjectAccessor" type="RigidBody2D" unique_id=313822356]
+script = ExtResource("1_2duc8")

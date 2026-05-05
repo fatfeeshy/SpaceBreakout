@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://diqbywfpvgnle"]
+
+[ext_resource type="Script" uid="uid://dal2p7ud1r3ph" path="res://scripts/player/astronaut.gd" id="1_wba1d"]
+[ext_resource type="Texture2D" uid="uid://dyda11k5uapr1" path="res://assets/sprites/player/astronaut_test.png" id="2_wba1d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wba1d"]
+size = Vector2(18, 28)
+
+[node name="Astronaut" type="CharacterBody2D" unique_id=1662411906]
+disable_mode = 1
+collision_mask = 2
+motion_mode = 1
+wall_min_slide_angle = 0.0
+platform_on_leave = 2
+script = ExtResource("1_wba1d")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=385340916]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wba1d")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1734909986]
+position = Vector2(0, 4.7683716e-07)
+texture = ExtResource("2_wba1d")
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=2101027769]
+position = Vector2(-5, -13)

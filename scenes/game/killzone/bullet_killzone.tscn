@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://2c6ppby6uovl"]
+
+[ext_resource type="Script" uid="uid://b11j88qsjfreh" path="res://scripts/game/bullet_killzone.gd" id="1_2xi5a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ww14"]
+size = Vector2(240, 20)
+
+[node name="BulletKillzone" type="Area2D" unique_id=387243657]
+script = ExtResource("1_2xi5a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415004017]
+position = Vector2(120, 10)
+shape = SubResource("RectangleShape2D_6ww14")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

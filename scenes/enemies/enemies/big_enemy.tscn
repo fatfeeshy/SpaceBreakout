@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cu8b6fx0xthkr"]
+
+[ext_resource type="Script" uid="uid://dkooexykvqxfw" path="res://scripts/enemies/enemies/big_enemy.gd" id="1_6jhsy"]
+[ext_resource type="Texture2D" uid="uid://d043arobv8v3" path="res://assets/sprites/enemies/largeenemy3.png" id="2_6jhsy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eih8q"]
+size = Vector2(40, 44)
+
+[node name="BigEnemy" type="Area2D" unique_id=532314225]
+script = ExtResource("1_6jhsy")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=5583587]
+shape = SubResource("RectangleShape2D_eih8q")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1531600524]
+texture = ExtResource("2_6jhsy")
+
+[node name="BulletPosition" type="Marker2D" parent="." unique_id=107710245]
+position = Vector2(-10, 21)
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=248801643]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

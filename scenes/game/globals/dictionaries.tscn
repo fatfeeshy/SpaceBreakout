@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://3oga2fg5aurk"]
+
+[ext_resource type="Script" uid="uid://c00untcu3nevk" path="res://scripts/game/globals/setup_dictionaries.gd" id="1_qcs4g"]
+
+[node name="Dictionaries" type="Node" unique_id=1774752215]
+script = ExtResource("1_qcs4g")
